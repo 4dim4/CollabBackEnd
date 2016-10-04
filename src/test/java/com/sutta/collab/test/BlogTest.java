@@ -18,11 +18,13 @@ public class BlogTest {
 		Blog blog = (Blog) context.getBean("blog");
 		BlogDAO blogDAO = (BlogDAO) context.getBean("blogDAO");
 		
-		blog.setId("B013");
-		blog.setName("NewB");
+		blog.setId("B0009");
+		blog.setName("NewBNewNew NEw");
 		blog.setDescription("TEST");
 		
-		blogDAO.save(blog);
+		/*blogDAO.save(blog);*/
+		blogDAO.update(blog);
+		
 		
 		context.close();
 	}

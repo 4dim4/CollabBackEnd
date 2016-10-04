@@ -18,13 +18,13 @@ public class ForumTest {
 		Forum forum = (Forum) context.getBean("forum");
 		ForumDAO forumDAO = (ForumDAO) context.getBean("forumDAO");
 		
-		forum.setId("B013");
+		forum.setId("B023");
 		forum.setTitle("New Forum");
 		forum.setUserId("User");
 		forum.setStatus('A');
-		forum.setDescription("TEST");
+		forum.setDescription("new test");
 		
-		forumDAO.save(forum);
+		forumDAO.update(forum);
 		
 		context.close();
 	}

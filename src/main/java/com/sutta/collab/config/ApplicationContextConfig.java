@@ -13,7 +13,6 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.sutta.collab.model.Blog;
@@ -35,7 +34,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		datasource.setUrl("jdbc:oracle:thin:@localhost:1521:XE");
 		datasource.setUsername("colabdb");
 		datasource.setPassword("root");
-		
+	/*	
 		Properties connectionProperties = new Properties();
 		connectionProperties.put("hibernate.show_sql", "true");
 		connectionProperties.put("hibernate.format_sql", "true");
@@ -43,7 +42,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		System.out.println("working");
 		connectionProperties.put("hibernate.hbm2ddl.auto", "update");
 		System.out.println("working");
-		datasource.setConnectionProperties(connectionProperties);
+		datasource.setConnectionProperties(connectionProperties);*/
 		return datasource;
 		
 	}

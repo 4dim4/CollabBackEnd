@@ -1,11 +1,15 @@
 package com.sutta.collab.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -22,6 +26,12 @@ public class Forum implements Serializable {
 	private String description;
 	private String userId;
 	private char status;
+	
+	@CreationTimestamp
+	@Column(updatable=false)
+	private Date createdOn;
+	@UpdateTimestamp	
+	private Date updatedOn;
 	public String getId() {
 		return id;
 	}
@@ -55,6 +65,29 @@ public class Forum implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	public Date getCreatedOn() {
+		return createdOn;
+	}
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
 	
+	}
+	public Date getUpdatedOn() {
+		return updatedOn;
+	}
+	public void setUpdatedOn(Date updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+	
+	/*@PrePersist
+	public void onCreate() {
+		createdOn = new Date();
+	}
+	
+	@PreUpdate
+	public void onUpdate() {
+		updatedOn = new Date();
+	}
+	*/
 	
 }
