@@ -1,7 +1,5 @@
 package com.sutta.collab.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,11 +9,9 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 @Table
-public class Event implements Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class Event{
+	
+	
 	@Id
 	private String id;
 
@@ -46,10 +42,6 @@ public class Event implements Serializable {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 

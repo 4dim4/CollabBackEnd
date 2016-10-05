@@ -14,23 +14,24 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 @Table
-public class Blog {
+public class ForumPost {
+
 	@Id
 	private String id;
-	private String title;
-	private char status;
-	
-	private String Description;
+	private String content;
+
 	@Column(name = "user_id")
 	private String userId;
+
+	@Column(name = "thread_id")
+	private String threadId;
+
 	@CreationTimestamp
 	@Column(updatable = false)
 	private Date created;
 	@UpdateTimestamp
 	@Column(insertable = false)
 	private Date updated;
-	
-	
 
 	public String getId() {
 		return id;
@@ -40,16 +41,23 @@ public class Blog {
 		this.id = id;
 	}
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
 	
-
-	public String getDescription() {
-		return Description;
-	}
-
-	public void setDescription(String description) {
-		Description = description;
-
-	}
 
 	public Date getCreated() {
 		return created;
@@ -67,31 +75,18 @@ public class Blog {
 		this.updated = updated;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getThreadId() {
+		return threadId;
 	}
 
-	public void setTitle(String title) {
-		this.title = title;
+	public void setThreadId(String threadId) {
+		this.threadId = threadId;
 	}
 
-	public char getStatus() {
-		return status;
-	}
-
-	public void setStatus(char status) {
-		this.status = status;
-	}
-
-	public String getUserId() {
-		return userId;
-	}
-
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-	
-	
-	
+	/*
+	 * @PrePersist public void onCreate() { createdOn = new Date(); }
+	 * 
+	 * @PreUpdate public void onUpdate() { updatedOn = new Date(); }
+	 */
 
 }

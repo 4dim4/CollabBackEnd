@@ -14,12 +14,12 @@ import org.springframework.stereotype.Component;
 @Entity
 @Component
 @Table
-public class Blog {
+public class BlogComment {
 	@Id
 	private String id;
-	private String title;
-	private char status;
-	
+	private String content;
+	@Column(name = "blog_id")
+	private String blogId;
 	private String Description;
 	@Column(name = "user_id")
 	private String userId;
@@ -29,8 +29,8 @@ public class Blog {
 	@UpdateTimestamp
 	@Column(insertable = false)
 	private Date updated;
-	
-	
+
+	private char status;
 
 	public String getId() {
 		return id;
@@ -67,14 +67,6 @@ public class Blog {
 		this.updated = updated;
 	}
 
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
 	public char getStatus() {
 		return status;
 	}
@@ -90,8 +82,21 @@ public class Blog {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
-	
-	
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getBlogId() {
+		return blogId;
+	}
+
+	public void setBlogId(String blogId) {
+		this.blogId = blogId;
+	}
 
 }

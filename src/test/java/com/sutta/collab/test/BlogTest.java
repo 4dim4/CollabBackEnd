@@ -19,7 +19,7 @@ public class BlogTest {
 		BlogDAO blogDAO = (BlogDAO) context.getBean("blogDAO");
 		
 		blog.setId("B0009");
-		blog.setName("NewBNewNew NEw");
+		
 		blog.setDescription("TEST");
 		
 		/*blogDAO.save(blog);*/
