@@ -18,6 +18,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.sutta.collab.model.Blog;
 import com.sutta.collab.model.Event;
 import com.sutta.collab.model.Forum;
+import com.sutta.collab.model.Job;
 import com.sutta.collab.model.UserDetails;
 
 
@@ -70,6 +71,7 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		sessionBuilder.addAnnotatedClass(UserDetails.class);
 		sessionBuilder.addAnnotatedClass(Event.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
+		sessionBuilder.addAnnotatedClass(Job.class);
 		
 		return sessionBuilder.buildSessionFactory();
 	}

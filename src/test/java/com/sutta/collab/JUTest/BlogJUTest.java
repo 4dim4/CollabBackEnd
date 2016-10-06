@@ -48,22 +48,39 @@ public class BlogJUTest {
 	}
 
 	@Test
-	public void blogCreateTestCase() {
+	public void blogCrudTestCase() {
 
-		blog.setId("B01");
+		/*blogCreateTestCase*/
+		blog.setId("B06");
 		blog.setTitle("New Blog");
 		blog.setUserId("sutta");
 		blog.setDescription("Blog blog blog blog");
 		blog.setStatus('A');
 		
 		Assert.assertEquals("blogCreateTestCase", true, blogDAO.save(blog));
+		
+		/*getBlogTestCase*/
+		Assert.assertEquals("getBlogTestCase",true,blogDAO.get("B06")!=null);
+		
+		/*blogUpdateTestCase*/
+		blog.setId("B05");
+		blog.setTitle("New Blog CHANGED");
+		blog.setUserId("sutta");
+		blog.setDescription("Blog blog blog blog BLOG");
+		blog.setStatus('A');
+		
+		Assert.assertEquals("blogUpdateTestCase", true, blogDAO.update(blog));
+		
+		/*blogDeleteTestCase*/
+		Assert.assertEquals("blogDeleteTestCase", true, blogDAO.delete("B06"));
+
 
 	}
 
-	@Test
+/*	@Test
 	public void listAllBlogTestCase() {
 		log.info("\n*************\n bloglist : {}\n*************\n",blogDAO.list().size());
-		Assert.assertEquals("listAllBlogTestCase", 1, blogDAO.list().size());
+		Assert.assertEquals("listAllBlogTestCase", 5, blogDAO.list().size());
 	}
 	
 	@Test
@@ -75,14 +92,15 @@ public class BlogJUTest {
 	@Test
 	public void blogUpdateTestCase() {
 
-		blog.setId("B01");
+		blog.setId("B05");
 		blog.setTitle("New Blog CHANGED");
 		blog.setUserId("sutta");
 		blog.setDescription("Blog blog blog blog BLOG");
 		blog.setStatus('A');
-
+		
 		Assert.assertEquals("blogUpdateTestCase", true, blogDAO.update(blog));
 
+	
 	}
 
 	@Test
@@ -90,5 +108,5 @@ public class BlogJUTest {
 
 		Assert.assertEquals("blogDeleteTestCase", true, blogDAO.delete("hridesh"));
 
-	}
+	}*/
 }

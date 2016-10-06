@@ -17,6 +17,7 @@ public class UserDetails {
 	private String password;
 	private String address;
 	private String mobile;
+	private String role;
 	
 /*	@OneToMany(mappedBy = "userDetails" ,fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	private Set<UserRole> userRoles;
@@ -57,6 +58,13 @@ public class UserDetails {
 	public void setMobile(String mobile) {
 		this.mobile = mobile;
 	}
+	public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
 	/*public Set<UserRole> getUserRoles() {
 		return userRoles;
 	}
