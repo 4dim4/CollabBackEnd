@@ -39,7 +39,7 @@ public class ForumPostDAOImpl implements ForumPostDAO {
 		return list;
 	}
 	@Transactional
-	public ForumPost get(String id) {
+	public ForumPost get(int id) {
 		
 		String hql = "from ForumPost where id = '" + id + "'";
 		
@@ -60,7 +60,7 @@ public class ForumPostDAOImpl implements ForumPostDAO {
 
 
 	@Transactional
-	public boolean delete(String id) {
+	public boolean delete(int id) {
 	  
 	
       ForumPost deleteForumPost = new ForumPost();
@@ -111,5 +111,22 @@ public class ForumPostDAOImpl implements ForumPostDAO {
 	
 		return true;
 	}
+
+
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<ForumPost> get(String forumId) {
+		
+		String hql = "from ForumPost where forumId ='" + forumId +"'";
+		Query<ForumPost> query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		List<ForumPost> list = query.getResultList();
+		return list;
+	}
+
+
+
+
 
 }

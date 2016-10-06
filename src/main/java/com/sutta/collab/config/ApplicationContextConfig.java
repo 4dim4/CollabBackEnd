@@ -16,8 +16,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.sutta.collab.model.Blog;
+import com.sutta.collab.model.BlogComment;
 import com.sutta.collab.model.Event;
 import com.sutta.collab.model.Forum;
+import com.sutta.collab.model.ForumPost;
 import com.sutta.collab.model.Job;
 import com.sutta.collab.model.UserDetails;
 
@@ -72,6 +74,8 @@ public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
 		sessionBuilder.addAnnotatedClass(Event.class);
 		sessionBuilder.addAnnotatedClass(Forum.class);
 		sessionBuilder.addAnnotatedClass(Job.class);
+		sessionBuilder.addAnnotatedClass(BlogComment.class);
+		sessionBuilder.addAnnotatedClass(ForumPost.class);
 		
 		return sessionBuilder.buildSessionFactory();
 	}

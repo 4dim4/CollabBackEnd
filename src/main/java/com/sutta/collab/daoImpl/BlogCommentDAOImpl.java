@@ -39,7 +39,7 @@ public class BlogCommentDAOImpl implements BlogCommentDAO {
 		return list;
 	}
 	@Transactional
-	public BlogComment get(String id) {
+	public BlogComment get(int id) {
 		
 		String hql = "from BlogComment where id = '" + id + "'";
 		
@@ -60,7 +60,7 @@ public class BlogCommentDAOImpl implements BlogCommentDAO {
 
 
 	@Transactional
-	public boolean delete(String id) {
+	public boolean delete(int id) {
 	  
 	
       BlogComment deleteBlogComment = new BlogComment();
@@ -110,6 +110,19 @@ public class BlogCommentDAOImpl implements BlogCommentDAO {
 		}
 	
 		return true;
+	}
+
+
+
+	@SuppressWarnings("unchecked")
+	@Transactional
+	public List<BlogComment> get(String blogId) {
+		
+		String hql = "from BlogComment where blogId ='" + blogId +"'";
+		Query<BlogComment> query = sessionFactory.getCurrentSession().createQuery(hql);
+		
+		List<BlogComment> list = query.getResultList();
+		return list;
 	}
 
 }

@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,32 +17,39 @@ import org.springframework.stereotype.Component;
 @Component
 @Table
 public class BlogComment {
+	
 	@Id
-	private String id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+
 	private String content;
-	@Column(name = "blog_id")
+
+	@Column(name = "blog_id" , updatable = false , nullable = false)
 	private String blogId;
+
 	private String Description;
-	@Column(name = "user_id")
+	
+	@Column(name = "user_id", updatable = false , nullable = false)
 	private String userId;
+	
 	@CreationTimestamp
 	@Column(updatable = false)
 	private Date created;
+	
 	@UpdateTimestamp
 	@Column(insertable = false)
 	private Date updated;
 
 	private char status;
 
-	public String getId() {
+	
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
-
-	
 
 	public String getDescription() {
 		return Description;

@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,13 +19,15 @@ import org.springframework.stereotype.Component;
 public class ForumPost {
 
 	@Id
-	private String id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private int id;
+	
 	private String content;
 
-	@Column(name = "user_id")
+	@Column(name = "user_id" , updatable = false , nullable = false)
 	private String userId;
 
-	@Column(name = "thread_id")
+	@Column(name = "thread_id" , updatable = false , nullable = false)
 	private String threadId;
 
 	@CreationTimestamp
@@ -33,11 +37,13 @@ public class ForumPost {
 	@Column(insertable = false)
 	private Date updated;
 
-	public String getId() {
+	
+
+	public int getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
