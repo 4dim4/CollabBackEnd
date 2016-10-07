@@ -64,6 +64,12 @@ public class UserDetails {
 	public void setRole(String role) {
 		this.role = role;
 	}
+	@Override
+	public String toString() {
+		return "UserDetails [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", address="
+				+ address + ", mobile=" + mobile + ", role=" + role + "]";
+	}
+	
 	
 	/*public Set<UserRole> getUserRoles() {
 		return userRoles;

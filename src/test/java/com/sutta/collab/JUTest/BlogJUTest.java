@@ -58,21 +58,26 @@ public class BlogJUTest {
 		blog.setStatus('A');
 		
 		Assert.assertEquals("blogCreateTestCase", true, blogDAO.save(blog));
+		log.debug("\n\n>>>After blogCreateTestCase<<<");
+		log.info("\n>>> {}\n\n",blog.toString());
 		
 		/*getBlogTestCase*/
 		Assert.assertEquals("getBlogTestCase",true,blogDAO.get("B06")!=null);
 		
 		/*blogUpdateTestCase*/
-		blog.setId("B05");
+		blog.setId("B06");
 		blog.setTitle("New Blog CHANGED");
 		blog.setUserId("sutta");
 		blog.setDescription("Blog blog blog blog BLOG");
-		blog.setStatus('A');
-		
+		blog.setStatus('A');		
 		Assert.assertEquals("blogUpdateTestCase", true, blogDAO.update(blog));
+		
+		log.debug("\n\n>>>After blogUpdateTestCase<<<");
+		log.info("\n>>> {}\n\n",blog.toString());
 		
 		/*blogDeleteTestCase*/
 		Assert.assertEquals("blogDeleteTestCase", true, blogDAO.delete("B06"));
+		
 
 
 	}

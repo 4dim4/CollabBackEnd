@@ -88,6 +88,12 @@ public class Forum {
 		this.updated = updated;
 	}
 
+	@Override
+	public String toString() {
+		return "Forum [id=" + id + ", title=" + title + ", description=" + description + ", userId=" + userId
+				+ ", status=" + status + ", created=" + created + ", updated=" + updated + "]";
+	}
+
 	
 
 	/*

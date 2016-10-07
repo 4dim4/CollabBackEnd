@@ -89,6 +89,14 @@ public class ForumPost {
 		this.threadId = threadId;
 	}
 
+	@Override
+	public String toString() {
+		return "ForumPost [id=" + id + ", content=" + content + ", userId=" + userId + ", threadId=" + threadId
+				+ ", created=" + created + ", updated=" + updated + "]";
+	}
+	
+	
+
 	/*
 	 * @PrePersist public void onCreate() { createdOn = new Date(); }
 	 * 

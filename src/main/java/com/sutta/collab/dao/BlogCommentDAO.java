@@ -17,4 +17,6 @@ public interface BlogCommentDAO {
 	public boolean update(BlogComment blogComment);
 	
 	public boolean delete(int id);
+	
+	public boolean delete(String blogId);
 }

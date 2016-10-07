@@ -90,6 +90,13 @@ public class Blog {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
+	@Override
+	public String toString() {
+		return "Blog [id=" + id + ", title=" + title + ", status=" + status + ", Description=" + Description
+				+ ", userId=" + userId + ", created=" + created + ", updated=" + updated + "]";
+	}
+	
 	
 	
 	

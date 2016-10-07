@@ -71,6 +71,13 @@ public class Job {
 		this.content = content;
 	}
 
+	@Override
+	public String toString() {
+		return "Job [id=" + id + ", content=" + content + ", title=" + title + ", created=" + created + ", updated="
+				+ updated + "]";
+	}
+
+	
 	
 	
 	

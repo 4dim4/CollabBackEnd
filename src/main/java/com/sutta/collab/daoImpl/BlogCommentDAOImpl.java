@@ -125,4 +125,28 @@ public class BlogCommentDAOImpl implements BlogCommentDAO {
 		return list;
 	}
 
+
+	@Transactional
+	public boolean delete(String blogId) {
+		
+		String hql = "delete from BlogComment where blogId ='" + blogId +"'";
+		
+	
+	      try {
+	    	sessionFactory.getCurrentSession().createQuery(hql).executeUpdate();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+	      
+	     
+	      return true;
+			
+		}
+
+
+	
+
 }

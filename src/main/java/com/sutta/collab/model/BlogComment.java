@@ -108,4 +108,12 @@ public class BlogComment {
 		this.blogId = blogId;
 	}
 
+	@Override
+	public String toString() {
+		return "BlogComment [id=" + id + ", content=" + content + ", blogId=" + blogId + ", Description=" + Description
+				+ ", userId=" + userId + ", created=" + created + ", updated=" + updated + ", status=" + status + "]";
+	}
+	
+	
+
 }

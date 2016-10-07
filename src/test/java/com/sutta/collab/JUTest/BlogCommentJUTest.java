@@ -12,7 +12,6 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.sutta.collab.dao.BlogCommentDAO;
 import com.sutta.collab.model.BlogComment;
 
-
 import junit.framework.Assert;
 
 @SuppressWarnings("deprecation")
@@ -48,6 +47,7 @@ public class BlogCommentJUTest {
 	}
 
 	@Test
+	
 	public void blogCommentCrudTestCase() {
 
 		/*blogCommentCreateTestCase*/
@@ -75,6 +75,25 @@ public class BlogCommentJUTest {
 		Assert.assertEquals("blogCommentDeleteTestCase", true, blogCommentDAO.delete(blogComment.getId()));
 
 
+	}
+	
+	@Test
+	public void listBlogCommentsByBlogId() {
+		
+		blogComment.setContent("Test Content");
+		blogComment.setDescription("TEST Description");
+		blogComment.setBlogId("TestBlog01");
+		blogComment.setUserId("TestUser01");
+		blogComment.setStatus('A');
+		
+		blogCommentDAO.save(blogComment);
+		blogCommentDAO.save(blogComment);
+		
+		Assert.assertEquals("listBlogCommentsByBlogId", 2, blogCommentDAO.get("TestBlog01").size());
+		
+		Assert.assertEquals("deleteBlogCommentsByBlogId", true,blogCommentDAO.delete("TestBlog01"));
+		
+		
 	}
 	
 	
